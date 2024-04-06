@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Threading;
 
-public static class App
-{
-    public enum EAppState
-    {
+public static class App {
+    public enum EAppState {
         Running,
         Reload, // 热更新表格
         Exit,
@@ -12,8 +10,7 @@ public static class App
 
     public static EAppState currentState = EAppState.Running;
 
-    public static void Init()
-    {
+    public static void Init() {
         currentState = EAppState.Running;
         LogicMgr.Instance.OnInit();
 
@@ -23,8 +20,7 @@ public static class App
         //});
     }
 
-    public static void Update()
-    {
+    public static void Update() {
         while (currentState != EAppState.Exit)
         {
             LogicMgr.Instance.OnUpdate();
@@ -32,8 +28,7 @@ public static class App
         }
     }
 
-    public static void Exit()
-    {
+    public static void Exit() {
         LogicMgr.Instance.OnExit();
     }
 }
